@@ -15,13 +15,14 @@ extern "C" {
 #endif
 
 // GPIO Pin Definitions - Safe pins for ESP32-S3 Feather
-#define MOTOR_A_IN1_GPIO    GPIO_NUM_5   // D5
-#define MOTOR_A_IN2_GPIO    GPIO_NUM_7   // D7 (using 7 instead of 6)
-#define MOTOR_A_ENA_GPIO    GPIO_NUM_9   // D9
+// Using pins that don't conflict with boot, flash, or onboard peripherals
+#define MOTOR_A_IN1_GPIO    GPIO_NUM_5   // D5 - Safe
+#define MOTOR_A_IN2_GPIO    GPIO_NUM_6   // D6 - Safe
+#define MOTOR_A_ENA_GPIO    GPIO_NUM_9   // D9 - Safe
 
-#define MOTOR_B_IN3_GPIO    GPIO_NUM_10  // D10
-#define MOTOR_B_IN4_GPIO    GPIO_NUM_11  // D11
-#define MOTOR_B_ENB_GPIO    GPIO_NUM_12  // D12
+#define MOTOR_B_IN3_GPIO    GPIO_NUM_10  // D10 - Safe
+#define MOTOR_B_IN4_GPIO    GPIO_NUM_11  // D11 - Safe
+#define MOTOR_B_ENB_GPIO    GPIO_NUM_12  // D12 - Safe
 
 // PWM Configuration
 #define PWM_FREQUENCY       5000    // 5 kHz
