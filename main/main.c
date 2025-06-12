@@ -10,6 +10,7 @@
 #include "esp_log.h"
 #include "esp_system.h"
 #include "esp_task_wdt.h"
+#include "esp_chip_info.h"
 #include "motor_driver.h"
 
 static const char *TAG = "motor_app";
@@ -289,8 +290,9 @@ void app_main(void)
 {
     ESP_LOGI(TAG, "================================================");
     ESP_LOGI(TAG, "ESP32-S3 Dual Motor Control - L298N Driver");
-    ESP_LOGI(TAG, "================================================");
-    ESP_LOGI(TAG, "Chip model: %d, revision: %d", esp_chip_info().model, esp_chip_info().revision);
+    esp_chip_info_t chip_info;
+    esp_chip_info(&chip_info);
+    ESP_LOGI(TAG, "Chip model: %d, revision: %d", chip_info.model, chip_info.revision);
     
     // Check why we reset
     check_reset_reason();
